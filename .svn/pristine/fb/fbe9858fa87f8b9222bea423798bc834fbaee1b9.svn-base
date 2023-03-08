@@ -1,0 +1,33 @@
+//  String class test program
+//
+//  Tests: Copy Ctor Test
+//
+
+#include "string.hpp"
+#include <cassert>
+
+int main(){
+    {
+        String one("abcde");
+        String two(one);
+
+        assert(one == "abcde" && two == "abcde");
+    }
+
+    {
+        String one("hcsjcgscgiuwgeuifgeiogeiocgeoce");
+        String two(one);
+
+        assert(one == "hcsjcgscgiuwgeuifgeiogeiocgeoce" && two == "hcsjcgscgiuwgeuifgeiogeiocgeoce");
+    }
+
+    {
+        String one("wfeufguefgeifgeoigeivogviog9ey9e0fy9fy9fyf9eyfefevuvdjdjvbdvdhovdviohvivkdpvhvphviv");
+        String two(one);
+
+        assert(one == "wfeufguefgeifgeoigeivogviog9ey9e0fy9fy9fyf9eyfefevuvdjdjvbdvdhovdviohvivkdpvhvphviv" && two == "wfeufguefgeifgeoigeivogviog9ey9e0fy9fy9fyf9eyfefevuvdjdjvbdvdhovdviohvivkdpvhvphviv");
+    }
+
+    std::cout << "Done testing copy constructor" << std::endl;
+    
+}

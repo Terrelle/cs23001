@@ -1,0 +1,29 @@
+// Bigint.hpp
+// Program that accepts large integer values
+// Terrelle Tettey on 9/8/21.
+
+
+#include <iostream>
+
+#ifndef biginit_hpp
+#define biginit_hpp
+
+const int CAPACITY = 200;
+
+class bigint
+{
+
+public:
+        bigint();
+        bigint(int);
+        bigint(const char[]);
+        void debugPrint(std::ostream&) const;
+        bool operator==(const bigint&);
+
+        friend std::ostream& operator<<(std::ostream&, const bigint&);
+
+private:
+        int array[CAPACITY];
+};
+
+#endif

@@ -1,0 +1,18 @@
+#ifndef CS2_STACK_UTIL_HPP
+#define CS2_STACK_UTIL_HPP
+////////////////////////////////////////////////////////////////////////////
+//
+// File: utilities.hpp
+//
+// Programmer: Terrelle Tettey
+
+#include <iostream>
+#include "stack.hpp"
+#include "../string/string.hpp"
+
+
+
+String toPostFix(String);
+
+
+#endif

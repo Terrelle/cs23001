@@ -1,0 +1,1 @@
+This function (GREATER_THAN(int, int)) is the slowest. It takes 5.79 cumulative seconds. I believe this is caused by the number of times the functions preceding it are being called before it gets to its turn to run which creates the bottleneck. 

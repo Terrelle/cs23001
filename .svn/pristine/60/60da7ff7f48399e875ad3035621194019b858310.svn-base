@@ -1,0 +1,169 @@
+// Terrelle Tettey
+// String Implementation
+// CS23001
+
+
+#include <iostream>
+#include "string.hpp"
+
+
+String::String()
+{
+    str[0] = 0;
+}
+
+String::String(char ch){
+    str[0] = ch;
+    str[1] = '\0';
+}
+
+String::String(const char str1[]){
+    int i = 0;
+    while(str1[i] != '\0'){
+        if(i >= capacity()) { break; } // if it exceeds capacity break
+        str[i] = str1[i];
+        ++i;
+    }
+    str[i] = '\0'; 
+}
+
+int String::length() const{
+    int result = 0; 
+    while(str[result] != 0) ++result;
+    return result;
+}
+
+int String::capacity ()  const {
+    return STRING_SIZE-1;
+}
+
+char String::operator[](int x) const{
+    return str[x];
+}
+
+char& String::operator[](int x) {
+
+    return str[x];
+}
+
+bool String::operator==(const String& rhs)const{
+    int x = 0;
+
+    while(str[x] != 0 && str[x] == rhs.str[x]) ++x;
+    return str[x] == rhs.str[x];
+}
+
+
+String operator+(char lhs, const String& rhs){
+    return String(lhs) + rhs;
+}
+
+String operator+(String lhs, const String& rhs){
+    String result;
+    result = lhs;
+
+    result += rhs;
+
+    return result;
+}
+
+String& String::operator+=(const String& rhs){
+    int offset = length();
+    int i = 0;
+    while (i < rhs.length()) {
+        str[offset+i] = rhs.str[i];
+        ++i;
+    }
+    str[offset+i] = '\0';
+    return *this;
+}
+
+
+
+String String::substr(int start, int end) const{
+
+    String result;
+    int i; // looping var
+    for(i = start; i <= end; ++i){
+        result.str[i-start] = str[i]; 
+    }
+
+    result.str[i-start] = '\0'; 
+    return result;
+
+}
+
+
+int String::findch(int start, char ch) const{
+
+    /* String one("wetynjidiid")
+    one.substr(0, 'n')
+
+    assert(one == 4)
+    */
+
+    for(int i = start; i <= length(); ++i){
+        if(ch == str[i]) return i;
+    } 
+    return -1;
+}
+
+int String::findstr(int start, const String& rhs) const{
+
+   for(int i = start; i <= length(); ++i){
+       if(rhs == substr(i, rhs.length()-1+i)) return i; 
+   }
+   return -1;
+}
+
+
+std::istream& operator>>(std::istream& in, String& rhs){
+    char x;
+    int i = 0;
+    
+    while(!in.eof()){
+        if(x == ' ' || x == '\n' || x == '\t') break;
+        
+        else
+        {
+        in.get(x);
+        if(in.eof()) break;
+        rhs.str[i] = x;
+        }
+        ++i;
+    }
+    rhs.str[i] = '\0';
+    return in;
+}
+
+std::ostream& operator<<(std::ostream& out, const String& rhs){
+    int i = 0;
+        while(rhs.str[i] != '\0'){
+            out << rhs.str[i];
+            ++i;
+    }
+    return out;
+}
+
+bool String::operator<(const String& rhs) const{
+    int i = 0;
+    while (str[i] != 0 && rhs.str[i] != 0 && str[i] == rhs.str[i]) ++i;
+    return str[i] < rhs.str[i];
+}
+
+bool operator==(const char lhs[],  const String& rhs){ return String(lhs) == rhs; }
+
+bool operator==(char lhs, const String& rhs){ return String(lhs) == rhs; }
+
+bool operator< (const char lhs[],  const String& rhs){ return String(lhs) < rhs; }
+
+bool operator< (char lhs, const String& rhs) { return String(lhs) < rhs; }
+
+bool operator<=(const String& lhs, const String& rhs){ return (lhs < rhs || lhs == rhs); }
+
+bool operator!= (const String& lhs, const String& rhs){ return !(lhs == rhs); }
+
+bool operator>=(const String& lhs, const String& rhs){ return !(lhs < rhs); }
+
+bool operator>(const String& lhs, const String& rhs){ return lhs > rhs; }
+

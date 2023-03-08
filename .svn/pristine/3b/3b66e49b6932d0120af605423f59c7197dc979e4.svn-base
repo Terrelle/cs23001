@@ -1,0 +1,41 @@
+//  String class test program
+//
+//  Tests: Concat Test
+//
+
+#include <cassert>
+#include "string.hpp"
+
+int main(){
+    {
+    String one("12345");
+    String two("efghij");
+
+    String result = one + two;
+    std::cout << "The two strings concatenated is: " << result << std::endl;
+
+    assert(result == "12345efghij");
+    }
+
+    {
+    String one("this is ");
+    String two("cool");
+
+    String result = one + two;
+    std::cout << "The two strings concatenated is: " << result << std::endl;
+
+    assert(result == "this is cool");
+    }
+
+    {
+    String one(" ");
+    String two("efghij");
+
+    String result = one + two;
+    std::cout << "The two strings concatenated is: " << result << std::endl;
+
+    assert(result == " efghij");
+    }
+
+    std::cout << "Done testing concatenation" << std::endl;
+}

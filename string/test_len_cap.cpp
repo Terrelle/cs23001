@@ -1,0 +1,89 @@
+//  String class test program
+//
+//  Tests: Capacity and Length Test
+//
+
+#include <cassert>
+#include "string.hpp"
+
+int main(){
+    {
+        String one = "hithere";
+
+        int result1 = one.length();
+        int result2 = one.capacity();
+
+        std::cout << "Length: " << result1 << std::endl;
+        std::cout << "Capacity: " << result2 << std::endl;
+
+        assert(result1 == 7);
+        assert(result2 == 7);
+    }
+
+    {
+        String one = "O";
+
+        int result1 = one.length();
+        int result2 = one.capacity();
+
+        std::cout << "Length: " << result1 << std::endl;
+        std::cout << "Capacity: " << result2 << std::endl;
+
+        assert(result1 == 1);
+        assert(result2 == 1);
+    }
+
+    {
+        String one;
+
+        int result1 = one.length();
+        int result2 = one.capacity();
+
+        std::cout << "Length: " << result1 << std::endl;
+        std::cout << "Capacity: " << result2 << std::endl;
+
+        assert(result1 == 0);
+        assert(result2 == 0);
+    }
+
+    {
+        String one = "nowtuuthhs";
+
+        int result1 = one.length();
+        int result2 = one.capacity();
+
+        std::cout << "Length: " << result1 << std::endl;
+        std::cout << "Capacity: " << result2 << std::endl;
+
+        assert(result1 == 10);
+        assert(result2 == 10);
+    }
+
+    {
+        String one = "@@";
+
+        int result1 = one.length();
+        int result2 = one.capacity();
+
+        std::cout << "Length: " << result1 << std::endl;
+        std::cout << "Capacity: " << result2 << std::endl;
+
+        assert(result1 == 2);
+        assert(result2 == 2);
+    }
+
+    {
+        String one = " ";
+
+        int result1 = one.length();
+        int result2 = one.capacity();
+
+        std::cout << "Length: " << result1 << std::endl;
+        std::cout << "Capacity: " << result2 << std::endl;
+
+        assert(result1 == 1);
+        assert(result2 == 1);
+    }
+
+    std::cout << "Done testing Length and Capacity." << std::endl;
+}

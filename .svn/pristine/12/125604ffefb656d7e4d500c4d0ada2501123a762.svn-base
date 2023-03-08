@@ -1,0 +1,58 @@
+#include <iostream>
+#include <fstream>
+
+
+void funcNum();
+void funcText();
+
+int main(){
+    
+   funcNum();
+   funcText();
+}
+
+void funcNum(){
+    std::ifstream num_file;
+
+    num_file.open("fileio-data-1.txt");
+    if(!num_file.is_open())
+    {
+        std::cout << "Error opening file" << std::endl;
+    }
+
+    while(!num_file.eof())
+    {
+        int x, y;
+        char ch;
+        num_file >> x >> ch >> y >> ch;
+        int result = x + y;
+        std::cout << result << std::endl;
+    }
+    num_file.close();
+}
+
+void funcText(){
+    const int size = 100;
+    int i = 0;
+    int num_of_char = 0;
+    char ch[size];
+    std::ifstream text_file;
+    text_file.open("fileio-text.txt");
+    if(!text_file.is_open()){
+        std::cout << "Error opeining file" << std::endl;
+    }
+
+    while(!text_file.eof())
+    {
+        text_file >> ch[i];
+        ++i;
+        ++num_of_char;
+    }
+
+    for (int i = 0; i < num_of_char; ++i)
+    {
+        std::cout << ch[i] << " ";   
+    }
+    std::cout << '\n';
+    text_file.close();
+}

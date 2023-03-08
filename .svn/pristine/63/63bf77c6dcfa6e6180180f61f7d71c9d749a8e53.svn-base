@@ -1,0 +1,82 @@
+// Bigint.cpp
+// Program that accepts large integer values
+// Terrelle Tettey on 9/8/21.
+
+
+#include "bigint.hpp"
+
+bigint::bigint()
+{
+    for (int i = 0; i < CAPACITY; ++i)
+    {
+        array[i] = 0;
+    }
+}
+
+bigint::bigint(int a)
+{
+    int temp_a;
+
+    for (int i = 0; i < CAPACITY; ++i)
+    {
+        temp_a = a % 10;   
+        a /= 10;           
+        array[i] = temp_a; 
+    }
+}
+
+bigint::bigint(const char valuechar[]) : bigint()
+{
+    int temp_char = 0;
+    while (valuechar[temp_char] != '\0') 
+    {
+        ++temp_char; 
+    }
+                   
+    for (int i = temp_char - 1; i >= 0; --i)
+    {
+        array[temp_char - i - 1] = valuechar[i] - '0';
+    }
+}
+
+void bigint::debugPrint(std::ostream &out) const
+{
+    for (int i = CAPACITY - 1; i >= 0; --i)
+    {
+        out << array[i] << "|";
+    }
+}
+
+std::ostream &operator<<(std::ostream &out, bigint &secondObject)
+{
+    int num_count = 0;
+    int i = CAPACITY - 1;
+
+    for (; i > 0 && secondObject.array[i] == 0; --i)
+    {
+    }
+
+    for (; i >= 0; --i)
+    {
+        if(num_count < 80)
+        out << secondObject.array[i];
+
+        else
+         out << secondObject.array[i] << std::endl;
+
+         num_count++;
+    }
+
+    return out;
+}
+
+bool bigint::operator==(bigint equalValue)
+{
+
+    for (int i = 0; i < CAPACITY; ++i)
+    {
+        if (array[i] != equalValue.array[i])
+            return false;
+    }
+    return true;
+}

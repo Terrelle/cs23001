@@ -1,0 +1,392 @@
+// bigint Test Program
+//
+// Tests:  int constructor, uses ==
+//
+// NEED TO IMPLEMENT
+//
+#include <iostream>
+#include <cassert>
+#include "bigint.hpp"
+
+
+//===========================================================================
+int main () {
+    {
+
+        // VERY INCOMPLETE set of tests.
+
+
+        //------------------------------------------------------
+        // Setup fixture
+        bigint left(0);
+        bigint right(0);
+        bigint result;
+
+        // Test 
+        result = left + right;
+
+        // Verify
+        assert(left   == 0);
+        assert(right  == 0);
+        assert(result == 0);
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(1);
+      bigint right(0);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 1);
+      assert(right  == 0);
+      assert(result == 1);
+    }
+
+    
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(1);
+      bigint right(1);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 1);
+      assert(right  == 1);
+      assert(result == 2);
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(9);
+      bigint right(8);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 9);
+      assert(right  == 8);
+      assert(result == 17);
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(6);
+      bigint right(90);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 6);
+      assert(right  == 90);
+      assert(result == 96);
+    }
+
+    
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(999);
+      bigint right(0);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 999);
+      assert(right  == 0);
+      assert(result == 999);
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(765);
+      bigint right(4542);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 765);
+      assert(right  == 4542);
+      assert(result == 5307);
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(570);
+      bigint right(48856);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 570);
+      assert(right  == 48856);
+      assert(result == 49426);
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(0);
+      bigint right(4652);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 0);
+      assert(right  == 4652);
+      assert(result == 4652);
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(567);
+      bigint right(896);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 567);
+      assert(right  == 896);
+      assert(result == 1463);
+    }
+    
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(890);
+      bigint right(9752);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 890);
+      assert(right  == 9752);
+      assert(result == 10642);
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(9890);
+      bigint right(9652);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 9890);
+      assert(right  == 9652);
+      assert(result == 19542);
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(0);
+      bigint right(4652);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 0);
+      assert(right  == 4652);
+      assert(result == 4652);
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(999);
+      bigint right(22371);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 999);
+      assert(right  == 22371);
+      assert(result == 23370);
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(890);
+      bigint right(188190);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 890);
+      assert(right  == 188190);
+      assert(result == 189080);
+    }
+
+    
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(66);
+      bigint right(999188190);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 66);
+      assert(right  == 999188190);
+      assert(result == 999188256);
+    }
+
+     //14
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(66);
+      bigint right("999188190");
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 66);
+      assert(right  == "999188190");
+      assert(result == "999188256");
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(759);
+      bigint right("22999188192");
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 759);
+      assert(right  == "22999188192");
+      assert(result == "22999188951");
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(0);
+      bigint right("5672536845926");
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 0);
+      assert(right  == "5672536845926");
+      assert(result == "5672536845926");
+    }
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(0);
+      bigint right("5672536845926");
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 0);
+      assert(right  == "5672536845926");
+      assert(result == "5672536845926");
+    }
+
+
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(345);
+      bigint right("421845937803856");
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 345);
+      assert(right  == "421845937803856");
+      assert(result == "421845937804201");
+    }
+
+     
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(450);
+      bigint right("9999999999999");
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 450);
+      assert(right  == "9999999999999");
+      assert(result == "10000000000449");
+    }
+
+
+
+
+    
+
+
+
+    
+
+    
+    //Add test cases as needed.
+    
+    
+    std::cout << "Done with testing addition." << std::endl;
+    return 0;
+}
+

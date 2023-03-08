@@ -1,0 +1,88 @@
+//  String class test program
+//
+//  Tests: LessThan Test
+//
+
+#include <cassert>
+#include "string.hpp"
+
+int main(){
+    {
+        String a;
+        String b("hithere");
+
+        bool result(b < a);
+        std::cout << "This result is: " << result << std::endl;
+
+        assert(result == false);
+    }
+
+    {
+        String a;
+        String b("hithere");
+
+        bool result(a < b);
+        std::cout << "This result is: " << result << std::endl;
+
+        assert(result == true);
+    }
+
+    {
+        String a = "62ggudk3ss";
+        String b = "62ggudk3ss";
+
+        bool result(a < b);
+        std::cout << "This result is: " << result << std::endl;
+
+        assert(result == false);
+    }
+
+     {
+        String a = "brujs";
+        String b = "a";
+
+        bool result(a < b);
+        std::cout << "This result is: " << result << std::endl;
+
+        assert(result == false);
+    }
+
+    
+
+    {
+        String a = "a";
+        String b = "nfgnub";
+
+        bool result(a < b);
+        std::cout << "This result is: " << result << std::endl;
+
+        assert(result == true);
+    }
+
+
+    {
+        String a = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaarrrrrrrrrrrrrrrrrrrrrrrrrreeeeeeeeeeeeeeeey";
+        String b = "ldhdjdhdjdjdjdjdhdhdjdjjdjdjdjdkdkkdjdhddhdjdjddjdjjdjdjdhjfjjfjffjfjfjjfjkdkkffkkffjjfkkfjfkkfkfjjfkfkkffkfkkkfkfkkfkfkkfjfjrjkrkkkdkkuurkkrkkkfkkkkkfkkkgkkkfkkfkdkiiriiriiroyyjjejcjndjuururujjjfuutuiirruuytjjehyurudhdutufjfjnnfuutuuuutyyeifnfhfutuiira";
+
+        bool result(a < b);
+        std::cout << "This result is: " << result << std::endl;
+
+        assert(result == true);
+    }
+
+    {
+        String a = "asshhhsjduduuiooodncnjcjjcjyyyeuuuiieiieiidijjdjdior00r0ododoododo";
+        String b = "asshhhsjduduuiooodncnjcjjcj";
+
+        bool result(a < b);
+        std::cout << "This result is: " << result << std::endl;
+
+        assert(result == false);
+    }
+
+    
+
+    std::cout << "Done tests with LessThan" << std::endl;
+
+
+} 
